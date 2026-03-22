@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MantineProvider } from "@mantine/core";
 import "./globals.css";
+import DrawerComponent from "./components/DrawerComponent";
+import "@mantine/core/styles.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -17,13 +19,17 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <MantineProvider>
+
+        <MantineProvider >
+          <DrawerComponent />
           {children}
         </MantineProvider>
       </body>
     </html>
   );
 }
+

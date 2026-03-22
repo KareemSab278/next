@@ -163,7 +163,7 @@ const getMaxBid = async (auctionId: number) => {
     return await request(`/api/auctions/${auctionId}/bids/max`);
 };
 
-const placeBid = async (data: { auction_id: number; user_id: number; amount: number }) => {
+const placeBid = async (data: { auction_id: number; bidder_id: number; bid_amount: number }) => {
     return await request("/api/bids", {
         method: "POST",
         body: JSON.stringify(data),
